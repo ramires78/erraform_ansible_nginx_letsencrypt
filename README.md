@@ -47,6 +47,7 @@ Rollen ermöglichen es Ihnen, aus kleineren Teilen für verschiedene Situationen
 ```shell
     $ cat outputs_result.csv
 ```
+**P.S. Beachtung! Ändern Sie die Werte der Variablen in Ihre eigenen!**
 
 ## License
 

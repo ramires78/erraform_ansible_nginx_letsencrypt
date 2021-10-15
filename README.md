@@ -9,15 +9,15 @@ Rollen ermöglichen es Ihnen, aus kleineren Teilen für verschiedene Situationen
 #### Verwenden von Rollen auf Play Niveauen
 
 ```
----
 - hosts: 
   - webservers
   become: true
   become_method: sudo
     
   roles:
-    - nginx
-    - vhosts
+    - { role: nginx, tags: role1 }
+    - { role: vhosts, tags: role2 }
+    - { role: TLS, tags: role3 }
 
 ```
 

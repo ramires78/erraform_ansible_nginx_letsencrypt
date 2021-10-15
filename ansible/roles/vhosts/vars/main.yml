@@ -1,0 +1,13 @@
+#dir und hostname#
+dir_names:
+  - acme
+  - ramires.devops.rebrain.srwx.net
+virtualconf:
+  - {src: 'virt_hosts_1.conf.j2', dest: '/etc/nginx/conf.d/{{ dir_names.1 }}.conf', mode: '0755'}
+  - {src: 'index_1.html.j2', dest: '/opt/www/{{ dir_names.1 }}/index.html', mode: '0644'}
+listen_http: 80
+listen_http2: 443
+
+
+
+

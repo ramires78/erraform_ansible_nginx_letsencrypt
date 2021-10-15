@@ -1,0 +1,6 @@
+do_token        = ""
+e-mail          = ""
+aws_access_key  = ""
+aws_secret_key  = ""
+my_key          = ""
+dev             = ""

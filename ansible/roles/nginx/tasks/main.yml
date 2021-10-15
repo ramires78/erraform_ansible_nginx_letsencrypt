@@ -1,0 +1,28 @@
+  - name: install Nginx
+    apt: 
+      name: nginx=1.14.0*
+      state: present
+      update_cache: true
+    tags:
+      - nginx_install       
+    notify:
+      - start nginx
+
+  - name: install Letsencrypt
+    apt: 
+      name: letsencrypt
+      state: latest 
+    tags:
+      - letsencrypt_install               
+
+  - name: copy the nginx config file
+    template:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      mode: "{{ item.mode }}" 
+    with_items:
+      - "{{ virtualconf }}"
+    tags:
+      - nginx_conf  
+    notify: 
+      - reload nginx            

@@ -1,0 +1,11 @@
+server {
+	listen {{ listen_http }};
+	listen [::]:{{ listen_http }};
+	server_name {{ dir_names.1 }} www.{{ dir_names.1 }};
+	root /opt/www/{{ dir_names.1 }};
+	index index.html index.htm index.nginx-debian.html;
+
+    location /.well-known/ {
+      root /opt/www/{{ dir_names.0 }};      
+  }
+  }

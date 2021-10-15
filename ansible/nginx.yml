@@ -1,0 +1,9 @@
+- hosts: 
+  - webservers
+  become: true
+  become_method: sudo
+    
+  roles:
+    - { role: nginx, tags: role1 }
+    - { role: vhosts, tags: role2 }
+    - { role: TLS, tags: role3 }

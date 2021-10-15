@@ -1,0 +1,32 @@
+  - name: add folder for item and sertifications virtual hosts
+    file:
+      path: /opt/www/{{ item }}
+      state: directory
+      mode: '0755'
+    with_items: "{{ dir_names }}"
+    tags:
+      - add_opt_folders   
+
+  - name: Remove default nginx config
+    file: 
+      name: /etc/nginx/sites-enabled/default
+      state: absent
+    tags:
+      - del_default   
+    notify: 
+      - reload nginx          
+
+  - name: copy the nginx vhotsts config file and the content of the web site
+    template:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      mode: "{{ item.mode }}" 
+    with_items:
+      - "{{ virtualconf }}"
+    tags:
+      - first_templates
+    notify: 
+      - reload nginx     
+
+  - name: Flush handlers
+    meta: flush_handlers     

@@ -1,19 +1,14 @@
-  - name: install Nginx
-    apt: 
-      name: nginx=1.14.0*
-      state: present
-      update_cache: true
+  - name: install Nginx und Letsencrypt
+    apt:
+      name    : "{{ item.name }}"
+      state   : "{{ item.state }}"
+    with_items:
+      - {name: "nginx=1.14.0*", state: "present"}
+      - {name: "letsencrypt", state: "latest"}
     tags:
-      - nginx_install       
-    notify:
-      - start nginx
-
-  - name: install Letsencrypt
-    apt: 
-      name: letsencrypt
-      state: latest 
-    tags:
-      - letsencrypt_install               
+      webservers 
+    notify: 
+      - start nginx                
 
   - name: copy the nginx config file
     template:

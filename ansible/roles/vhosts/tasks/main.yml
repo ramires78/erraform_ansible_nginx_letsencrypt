@@ -24,9 +24,15 @@
     with_items:
       - "{{ virtualconf }}"
     tags:
-      - first_templates
+      - erste_templates
     notify: 
-      - reload nginx     
+      - reload nginx 
+
+  - name: Check NGINX configs
+    shell: 
+      cmd: "/usr/sbin/nginx -t"
+    tags:
+      - check_nginx  
 
   - name: Flush handlers
     meta: flush_handlers     

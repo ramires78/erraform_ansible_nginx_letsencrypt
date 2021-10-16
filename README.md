@@ -15,9 +15,9 @@ Rollen ermöglichen es Ihnen, aus kleineren Teilen für verschiedene Situationen
   become_method: sudo
     
   roles:
-    - { role: nginx, tags: role1 }
-    - { role: vhosts, tags: role2 }
-    - { role: TLS, tags: role3 }
+    - { role: nginx, tags: web_install }
+    - { role: vhosts, tags: make_hosts }
+    - { role: TLS, tags: make_cert }
 
 ```
 

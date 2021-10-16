@@ -21,20 +21,20 @@ Rollen ermöglichen es Ihnen, aus kleineren Teilen für verschiedene Situationen
 
 ```
 
-    $ ansible-playbook -i ./ansible/inventories/webservers/hosts.yml ./ansible/nginx.yml --list-task
+    $ ansible-playbook -i ./ansible/inventories/webservers/hosts.yml ./ansible/nginx.yml --list-task  
 
-  play #1 (webservers): webservers  TAGS: []
-    tasks:
-      nginx : install Nginx und Letsencrypt TAGS: [web_install, webservers]
-      nginx : copy the nginx config file    TAGS: [nginx_conf, web_install]
-      vhosts : add folder for item and sertifications virtual hosts TAGS: [add_opt_folders, make_hosts]
-      vhosts : Remove default nginx config  TAGS: [del_default, make_hosts]
-      vhosts : copy the nginx vhotsts config file and the content of the web site   TAGS: [erste_templates, make_hosts]
-      vhosts : Check NGINX configs  TAGS: [check_nginx, make_hosts]
-      vhosts : Flush handlers   TAGS: [make_hosts]
-      TLS : take cert from letsencrypt  TAGS: [letsencrypt_cert, make_cert]
-      TLS : Add letsencrypt cronjob for cert renewal    TAGS: [cron_cert, make_cert]
-      TLS : copy the new 443 nginx vhotsts config file  TAGS: [make_cert, new_host]
+  play #1 (webservers): webservers  TAGS: []  
+    tasks:  
+      nginx : install Nginx und Letsencrypt TAGS: [web_install, webservers]  
+      nginx : copy the nginx config file    TAGS: [nginx_conf, web_install]  
+      vhosts : add folder for item and sertifications virtual hosts TAGS: [add_opt_folders, make_hosts]  
+      vhosts : Remove default nginx config  TAGS: [del_default, make_hosts]  
+      vhosts : copy the nginx vhotsts config file and the content of the web site   TAGS: [erste_templates, make_hosts]  
+      vhosts : Check NGINX configs  TAGS: [check_nginx, make_hosts]  
+      vhosts : Flush handlers   TAGS: [make_hosts]  
+      TLS : take cert from letsencrypt  TAGS: [letsencrypt_cert, make_cert]  
+      TLS : Add letsencrypt cronjob for cert renewal    TAGS: [cron_cert, make_cert]  
+      TLS : copy the new 443 nginx vhotsts config file  TAGS: [make_cert, new_host]  
       
 
 

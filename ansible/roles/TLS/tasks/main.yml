@@ -12,9 +12,7 @@
       special_time: weekly
       job: /usr/bin/letsencrypt --renew-by-default certonly -n --webroot -w /opt/www/{{ tls_dir_names }}  -m {{ letsencrypt_renew_email }} --agree-tos -d {{ tls_vhostnames }} -d www.{{ tls_vhostnames }} && /etc/init.d/nginx reload
     tags:
-      - cron_cert
-    notify: 
-      - reload nginx               
+      - cron_cert              
 
   - name: copy the new 443 nginx vhotsts config file
     template:
